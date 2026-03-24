@@ -50,20 +50,21 @@ Run `heos setup` to auto-discover speakers on the network.
 ## Examples
 
 ```bash
-# Discover speakers and save config
-heos setup
+$ heos player list
+PID  NAME         MODEL           NETWORK  SERIAL
+1    Living Room  Denon Home 150  wifi     AABBCC
+2    Kitchen      Denon Home 150  wifi     DDEEFF
 
-# Set living room speaker to 40% volume
-heos player volume --player "Living Room" 40
+$ heos player volume --player "Living Room" 40
+40
 
-# Play a URL on a specific player
-heos browse play-url --player "Living Room" "http://stream.example.com/radio"
+$ heos player now-playing --player "Living Room"
+Song:     Bohemian Rhapsody - Queen
+Album:    A Night at the Opera
+Duration: 3:22 / 5:55
 
-# Group two speakers together
-heos group set --leader "Living Room" --members "Kitchen"
-
-# See what's currently playing
-heos player now-playing --player "Living Room"
+$ heos group set --leader "Living Room" --members "Kitchen"
+Group created: Living Room + Kitchen
 ```
 
 ## JSON Output
