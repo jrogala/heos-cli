@@ -26,26 +26,24 @@ Run `heos setup` to auto-discover speakers on the network.
 |---|---|
 | `setup` | Auto-discover HEOS speakers and save config |
 | `player list` | List all available players |
-| `player info` | Show player details |
-| `player play` | Start playback |
-| `player pause` | Pause playback |
-| `player stop` | Stop playback |
-| `player volume` | Get or set volume (0-100) |
-| `player mute` | Toggle mute |
-| `player now-playing` | Show currently playing track |
-| `player queue` | List the play queue |
-| `player next` | Skip to next track |
-| `player prev` | Skip to previous track |
+| `player info --pid PID` | Show player details |
+| `player play --pid PID` | Start playback |
+| `player pause --pid PID` | Pause playback |
+| `player stop --pid PID` | Stop playback |
+| `player get-volume --pid PID` | Get player volume |
+| `player set-volume --pid PID --level N` | Set volume (0-100) |
+| `player mute --pid PID` | Mute player |
+| `player unmute --pid PID` | Unmute player |
+| `player now-playing --pid PID` | Show currently playing track |
+| `player queue --pid PID` | List the play queue |
+| `player next --pid PID` | Skip to next track |
+| `player previous --pid PID` | Skip to previous track |
 | `group list` | List speaker groups |
-| `group set` | Create or modify a speaker group |
-| `group volume` | Get or set group volume |
-| `group mute` | Toggle group mute |
+| `group set-volume --gid GID --level N` | Set group volume |
 | `browse sources` | List available music sources |
-| `browse play-url` | Play a URL on a player |
-| `browse search` | Search music sources |
+| `browse play-url --pid PID --url URL` | Play a URL on a player |
 | `system heart-beat` | Check connection to HEOS system |
 | `system check-account` | Show signed-in HEOS account |
-| `system sign-in` | Sign in to HEOS account |
 
 ## Examples
 
@@ -55,16 +53,17 @@ PID  NAME         MODEL           NETWORK  SERIAL
 1    Living Room  Denon Home 150  wifi     AABBCC
 2    Kitchen      Denon Home 150  wifi     DDEEFF
 
-$ heos player volume --player "Living Room" 40
+$ heos player get-volume --pid 1
 40
 
-$ heos player now-playing --player "Living Room"
-Song:     Bohemian Rhapsody - Queen
-Album:    A Night at the Opera
-Duration: 3:22 / 5:55
+$ heos player now-playing --pid 1
+Type:    song
+Song:    Bohemian Rhapsody
+Artist:  Queen
+Album:   A Night at the Opera
 
-$ heos group set --leader "Living Room" --members "Kitchen"
-Group created: Living Room + Kitchen
+$ heos player set-volume --pid 1 --level 30
+Volume set to 30
 ```
 
 ## JSON Output
