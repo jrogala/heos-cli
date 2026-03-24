@@ -2,6 +2,14 @@
 
 CLI for controlling Denon HEOS speakers over the local network.
 
+## Install
+
+Download a binary from the [latest release](https://github.com/jrogala/heos-cli/releases/latest), or install with Go:
+
+```bash
+go install github.com/jrogala/heos-cli@latest
+```
+
 ## Setup
 
 Set `HEOS_HOST` env var or configure via `~/.config/heos-cli/config.yaml`:
