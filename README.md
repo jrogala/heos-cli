@@ -49,21 +49,26 @@ Run `heos setup` to auto-discover speakers on the network.
 
 ```bash
 $ heos player list
-PID  NAME         MODEL           NETWORK  SERIAL
-1    Living Room  Denon Home 150  wifi     AABBCC
-2    Kitchen      Denon Home 150  wifi     DDEEFF
+PID         NAME    MODEL              NETWORK  SERIAL
+2024160671  bureau  Denon Home 150 NV  wifi     XXXXXXXXXXXX
 
-$ heos player get-volume --pid 1
-40
+$ heos player get-volume --pid 2024160671
+15
 
-$ heos player now-playing --pid 1
-Type:    song
-Song:    Bohemian Rhapsody
-Artist:  Queen
-Album:   A Night at the Opera
+$ heos player now-playing --pid 2024160671
+Type:    station
+Song:    Teacher
+Artist:  Midnight Generation
+Album:   Teacher
+Station: Teacher
 
-$ heos player set-volume --pid 1 --level 30
-Volume set to 30
+$ heos player info --pid 2024160671
+Name:    bureau
+PID:     2024160671
+Model:   Denon Home 150 NV
+Version: 3.88.532
+Network: wifi
+Serial:  XXXXXXXXXXXX
 ```
 
 ## JSON Output
